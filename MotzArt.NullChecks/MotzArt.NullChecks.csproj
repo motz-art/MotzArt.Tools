@@ -4,6 +4,33 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>$(ProjectName)</PackageId>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>MotzArt Null Checks</Title>
+    <Company>MotzArt</Company>
+    <Description>Fluent API for Null checks.</Description>
+    <PackageIcon>MotzArt.NullCheck.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/motz-art/MotzArt.Tools.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Null Checks; Nullability Helpers; Fluent Nullability; Fluent Nulls</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <IncludeSymbols>False</IncludeSymbols>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Icons\MotzArt.NullCheck.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

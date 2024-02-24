@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866666 33.866666"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="MotzArt.NullCheck.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="5.911246"
+     inkscape:cx="67.244706"
+     inkscape:cy="69.274735"
+     inkscape:window-width="2560"
+     inkscape:window-height="1369"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showgrid="true">
+    <inkscape:grid
+       id="grid4"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="0.26458333"
+       spacingy="0.26458333"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <rect
+       x="277.09894"
+       y="349.16495"
+       width="242.92679"
+       height="86.276222"
+       id="rect3" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       transform="matrix(0.17405039,0,0,0.19294049,-43.7028,-57.054099)"
+       id="text3"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64px;font-family:Consolas;-inkscape-font-specification:'Consolas Bold';white-space:pre;shape-inside:url(#rect3);fill:#d50700;fill-opacity:1;stroke-width:1.09139"><tspan
+         x="277.09961"
+         y="404.69531"
+         id="tspan2"><tspan
+           style="fill:#000cff"
+           id="tspan1">null</tspan></tspan></text>
+    <path
+       id="path3"
+       style="fill:#d50000;fill-opacity:1;stroke-width:0.2"
+       d="M 17.142647,1.5284329 A 15.312247,15.312247 0 0 0 1.784874,14.030835 L 1.586443,15.473791 A 15.312247,15.312247 0 0 0 15.111541,32.052154 15.312247,15.312247 0 0 0 32.007109,18.925167 15.312247,15.312247 0 0 0 19.285735,1.7222199 15.312247,15.312247 0 0 0 17.142647,1.5284329 Z m -0.05215,2.624254 A 12.687435,12.687435 0 0 1 18.866019,4.3132539 12.687435,12.687435 0 0 1 29.406794,18.567419 12.687435,12.687435 0 0 1 15.407495,29.444154 12.687435,12.687435 0 0 1 4.2007,15.707584 L 4.365375,14.511999 A 12.687435,12.687435 0 0 1 17.090492,4.1526869 Z" />
+    <rect
+       style="fill:#d50000;fill-opacity:1;stroke-width:0.2"
+       id="rect4"
+       width="26.83968"
+       height="2.302835"
+       x="-9.3550806"
+       y="22.311211"
+       transform="rotate(-35.17184)" />
+  </g>
+</svg>
