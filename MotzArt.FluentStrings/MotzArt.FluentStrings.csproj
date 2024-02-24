@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>MotzArt.FluentStrings</Title>
+    <Authors>MotzArt</Authors>
+    <Description>Fluent variants of string methods like IsNullOrEmpty, IsNullOrWhitespace etc.</Description>
+    <Copyright>MotzArt</Copyright>
+    <PackageProjectUrl>https://github.com/motz-art/MotzArt.Tools</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/motz-art/MotzArt.Tools.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Fluent string; IsNullOrEmpty; IsNullOrWhitespace; String Extensions</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <PackagePath>\</PackagePath>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
+
+</Project>
