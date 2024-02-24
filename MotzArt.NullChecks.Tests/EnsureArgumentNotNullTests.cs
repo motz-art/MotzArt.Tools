@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace MotzArt.NullChecks.Tests;
 
 [TestFixture]
-public class EnsureNotNullTests
+public class EnsureArgumentNotNullTests
 {
     [Test]
     [TestCase("")]
@@ -12,7 +12,7 @@ public class EnsureNotNullTests
     [TestCase("some string")]
     public void ShouldNotThrowWhenStringValueNotNull(string str)
     {
-        str.EnsureNotNull().Should().BeSameAs(str);
+        str.EnsureArgumentNotNull().Should().BeSameAs(str);
     }
 
     [Test]
@@ -20,7 +20,7 @@ public class EnsureNotNullTests
     {
         var obj = new object();
 
-        obj.EnsureNotNull().Should().BeSameAs(obj);
+        obj.EnsureArgumentNotNull().Should().BeSameAs(obj);
     }
 
     [Test]
@@ -33,7 +33,7 @@ public class EnsureNotNullTests
     {
         int? nullable = value;
 
-        nullable.EnsureNotNull().Should().Be(value);
+        nullable.EnsureArgumentNotNull().Should().Be(value);
     }
 
     [Test]
@@ -41,9 +41,9 @@ public class EnsureNotNullTests
     {
         object? obj = null;
 
-        var act = () => obj.EnsureNotNull();
+        var act = () => obj.EnsureArgumentNotNull();
 
-        act.Should().Throw<NullReferenceException>().WithMessage($"{nameof(obj)} should not be null.");
+        act.Should().Throw<ArgumentNullException>().WithMessage($"Value cannot be null. (Parameter '{nameof(obj)}')");
     }
 
     [Test]
@@ -51,9 +51,9 @@ public class EnsureNotNullTests
     {
         string? str = null;
 
-        var act = () => str.EnsureNotNull();
+        var act = () => str.EnsureArgumentNotNull();
 
-        act.Should().Throw<NullReferenceException>().WithMessage($"{nameof(str)} should not be null.");
+        act.Should().Throw<ArgumentNullException>().WithMessage($"Value cannot be null. (Parameter '{nameof(str)}')");
     }
 
     [Test]
@@ -61,8 +61,8 @@ public class EnsureNotNullTests
     {
         int? value = null;
 
-        var act = () => value.EnsureNotNull();
+        var act = () => value.EnsureArgumentNotNull();
 
-        act.Should().Throw<NullReferenceException>().WithMessage($"{nameof(value)} should not be null.");
+        act.Should().Throw<ArgumentNullException>().WithMessage($"Value cannot be null. (Parameter '{nameof(value)}')");
     }
 }
