@@ -16,6 +16,7 @@
     <PackageTags>Fluent string; IsNullOrEmpty; IsNullOrWhitespace; String Extensions</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
