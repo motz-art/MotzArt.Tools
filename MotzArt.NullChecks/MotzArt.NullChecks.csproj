@@ -16,8 +16,9 @@
     <PackageTags>Null Checks; Nullability Helpers; Fluent Nullability; Fluent Nulls</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-    <IncludeSymbols>False</IncludeSymbols>
-    <Version>1.0.1</Version>
+    <IncludeSymbols>True</IncludeSymbols>
+    <Version>1.0.2</Version>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
