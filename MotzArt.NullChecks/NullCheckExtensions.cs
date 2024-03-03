@@ -59,6 +59,14 @@ public static class NullCheckExtensions
         return value ?? throw new NullReferenceException($"{name} should not be null.");
     }
 
+    /// <summary>
+    /// Checks if <see cref="list"/> has any items. Otherwise, throws <see cref="ArgumentException"/>.
+    /// </summary>
+    /// <typeparam name="TItem">List items type</typeparam>
+    /// <param name="list">List to check.</param>
+    /// <param name="name">Name of the list. If not sett will be set to expression passed into <see cref="list"/> argument.</param>
+    /// <returns>The <see cref="list"/> that was passed in.</returns>
+    /// <exception cref="ArgumentException">Throws if list is <see langword="null"/> or empty.</exception>
     [return: NotNull]
     public static List<TItem> EnsureNotEmpty<TItem>([NotNull] this List<TItem>? list, [CallerArgumentExpression(nameof(list))] string name = "<not specified>")
     {
@@ -66,6 +74,14 @@ public static class NullCheckExtensions
         return list;
     }
 
+    /// <summary>
+    /// Checks if <see cref="list"/> has any items. Otherwise, throws <see cref="ArgumentException"/>.
+    /// </summary>
+    /// <typeparam name="TItem">List items type</typeparam>
+    /// <param name="list">List to check.</param>
+    /// <param name="name">Name of the list. If not sett will be set to expression passed into <see cref="list"/> argument.</param>
+    /// <returns>The <see cref="list"/> that was passed in.</returns>
+    /// <exception cref="ArgumentException">Throws if list is <see langword="null"/> or empty.</exception>
     [return: NotNull]
     public static IReadOnlyList<TItem> EnsureNotEmpty<TItem>([NotNull] this IReadOnlyList<TItem>? list, [CallerArgumentExpression(nameof(list))] string name = "<not specified>")
     {
@@ -73,6 +89,15 @@ public static class NullCheckExtensions
         return list;
     }
 
+
+    /// <summary>
+    /// Checks if <see cref="list"/> has any items. Otherwise, throws <see cref="ArgumentException"/>.
+    /// </summary>
+    /// <typeparam name="TItem">List items type</typeparam>
+    /// <param name="list">List to check.</param>
+    /// <param name="name">Name of the list. If not sett will be set to expression passed into <see cref="list"/> argument.</param>
+    /// <returns>The <see cref="list"/> that was passed in.</returns>
+    /// <exception cref="ArgumentException">Throws if list is <see langword="null"/> or empty.</exception>
     [return: NotNull]
     public static IList<TItem> EnsureNotEmpty<TItem>([NotNull] this IList<TItem>? list, [CallerArgumentExpression(nameof(list))] string name = "<not specified>")
     {
