@@ -143,4 +143,17 @@ public static class StringExtensions
     {
         return string.Join(separator, source);
     }
+
+    /// <summary>
+    /// Concatenates non-empty and non-whitespace elements of a specified collection, using the specified separator between each element.
+    /// </summary>
+    /// <param name="source">A collection that contains the objects to concatenate.</param>
+    /// <param name="separator">The <see cref="string"/> to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
+    /// <returns>A <see langword="string"/> that consists of the elements of values delimited by the separator string.</returns>
+    public static string JoinNonEmptyStrings(this IEnumerable<string?> source, string separator)
+    {
+        if (source == null) throw new ArgumentNullException(nameof(source));
+
+        return source.Where(HasValue)!.JoinString(separator);
+    }
 }
