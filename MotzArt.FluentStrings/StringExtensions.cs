@@ -1,5 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Buffers;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace MotzArt.FluentStrings;
 
@@ -8,6 +11,9 @@ namespace MotzArt.FluentStrings;
 /// </summary>
 public static class StringExtensions
 {
+    private static readonly SearchValues<char> WhiteSpaceCharacters = SearchValues.Create(
+        "\u0020\u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\u0009\u000A\u000B\u000C\u000D\u0085");
+
     /// <summary>
     /// Indicates whether the <see cref="value"/> string is <see langword="null"/>, empty, or consists only of white-space characters.
     /// </summary>
@@ -155,5 +161,122 @@ public static class StringExtensions
         if (source == null) throw new ArgumentNullException(nameof(source));
 
         return source.Where(HasValue)!.JoinString(separator);
+    }
+
+    /// <summary>
+    /// Removes starting, trailing and duplicate white spaces.
+    /// </summary>
+    /// <param name="str">Input string</param>
+    /// <returns></returns>
+    [return: NotNullIfNotNull("str")]
+    public static string? RemoveRedundantWhiteSpaces(this string? str)
+    {
+        if (str == null) return null;
+
+        if (str.Length == 0) return str;
+
+        var span = RemoveRedundantWhiteSpaces(str.AsSpan());
+
+        if (span.Length == str.Length) return str;
+
+        return span.ToString();
+    }
+
+    /// <summary>
+    /// Removes starting, trailing and duplicate white spaces.
+    /// </summary>
+    /// <param name="str">Input string</param>
+    /// <returns></returns>
+    public static ReadOnlySpan<char> RemoveRedundantWhiteSpaces(this ReadOnlySpan<char> str)
+    {
+        if (str.Length == 0) return str;
+
+        {
+            var start = str.IndexOfAnyExcept(WhiteSpaceCharacters);
+
+            if (start == -1) return "";
+
+            var end = str.LastIndexOfAnyExcept(WhiteSpaceCharacters) + 1;
+
+            Debug.Assert(start < end);
+
+            str = str.Slice(start, end - start);
+
+            var pos = str.IndexOfAny(WhiteSpaceCharacters);
+
+            if (pos > 0)
+            {
+                while (true)
+                {
+                    var n1 = pos + 1;
+                    var n = str.Slice(n1).IndexOfAny(WhiteSpaceCharacters);
+
+                    if (n < 0)
+                    {
+                        break;
+                    }
+
+                    if (n == 0 && !str.Slice(pos).StartsWith("\r\n"))
+                    {
+                        return DoRemoveRedundantWhiteSpaces(str, pos);
+                    }
+
+                    pos = n1 + n;
+                }
+            }
+
+            return str;
+        }
+    }
+
+    private static string DoRemoveRedundantWhiteSpaces(ReadOnlySpan<char> str, int pos)
+    {
+        var sb = new StringBuilder(str.Length - 1);
+
+        pos++;
+
+        sb.Append(str.Slice(0, pos));
+
+        var prevIsWhiteSpace = true;
+
+        foreach (var ch in str.Slice(pos))
+        {
+            if (char.IsWhiteSpace(ch))
+            {
+                if (prevIsWhiteSpace)
+                {
+                    if (ch == '\n')
+                    {
+                        if (sb[^1] == '\r')
+                        {
+                            sb.Append(ch);
+                        }
+                        else
+                        {
+                            sb[^1] = ch;
+                        }
+                    }
+                    else if (ch == '\r')
+                    {
+                        if (sb[^1] != '\n')
+                        {
+                            sb[^1] = '\r';
+                        }
+                    }
+
+                    continue;
+                }
+
+                prevIsWhiteSpace = true;
+            }
+            else
+            {
+                prevIsWhiteSpace = false;
+            }
+
+            sb.Append(ch);
+        }
+
+        return sb.ToString();
     }
 }
