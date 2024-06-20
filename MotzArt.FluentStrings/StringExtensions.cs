@@ -3,6 +3,9 @@ using System.Runtime.CompilerServices;
 
 namespace MotzArt.FluentStrings;
 
+/// <summary>
+/// Provides a set of string extensions methods.
+/// </summary>
 public static class StringExtensions
 {
     /// <summary>
@@ -86,7 +89,7 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Concatenates the elements of a specified collection, using the specified separator between each element.
+    /// Concatenates the elements of a specified <see cref="source"/> collection, using the specified <see cref="separator"/> between each element.
     /// </summary>
     /// <typeparam name="T">The type of the members of <see cref="source"/>.</typeparam>
     /// <param name="source">A collection that contains the objects to concatenate.</param>
@@ -98,10 +101,10 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Concatenates the elements of a specified collection, using the specified separator between each element.
+    /// Concatenates the elements of a specified <see cref="source"/> collection, using the specified <see cref="separator"/> between each element.
     /// </summary>
-    /// <param name="source">A collection that contains the objects to concatenate.</param>
-    /// <param name="separator">The string to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
+    /// <param name="source">A collection that contains the strings to concatenate.</param>
+    /// <param name="separator">The <see cref="string"/> to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
     /// <returns>A <see langword="string"/> that consists of the elements of values delimited by the separator string.</returns>
     public static string JoinString(this IEnumerable<string> source, string separator)
     {
@@ -109,10 +112,10 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Concatenates the elements of a specified collection, using the specified separator between each element.
+    /// Concatenates the elements of a specified <see cref="source"/> collection, using the specified <see cref="separator"/> between each element.
     /// </summary>
-    /// <param name="source">A collection that contains the objects to concatenate.</param>
-    /// <param name="separator">The string to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
+    /// <param name="source">A collection that contains the strings to concatenate.</param>
+    /// <param name="separator">The <see cref="char"/> to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
     /// <returns>A <see langword="string"/> that consists of the elements of values delimited by the separator string.</returns>
     public static string JoinString(this IEnumerable<string> source, char separator)
     {
@@ -120,10 +123,10 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Concatenates the elements of a specified collection, using the specified separator between each element.
+    /// Concatenates the elements of a specified <see cref="source"/> array, using the specified <see cref="separator"/> between each element.
     /// </summary>
-    /// <param name="source">A collection that contains the objects to concatenate.</param>
-    /// <param name="separator">The string to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
+    /// <param name="source">A collection that contains the strings to concatenate.</param>
+    /// <param name="separator">The <see cref="string"/> to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
     /// <returns>A <see langword="string"/> that consists of the elements of values delimited by the separator string.</returns>
     public static string JoinString(this string[] source, string separator)
     {
@@ -131,11 +134,11 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Concatenates the elements of a specified collection, using the specified separator between each element.
+    /// Concatenates the elements of a specified <see cref="source"/> array, using the specified <see cref="separator"/> between each element.
     /// </summary>
-    /// <param name="source">A collection that contains the objects to concatenate.</param>
-    /// <param name="separator">The string to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
-    /// <returns>A <see langword="string"/> that consists of the elements of values delimited by the separator string.</returns>
+    /// <param name="source">A collection that contains the strings to concatenate.</param>
+    /// <param name="separator">The <see cref="char"/> to use as a separator. <see cref="separator"/> is included in the returned string only if <see cref="source"/> has more than one element.</param>
+    /// <returns>A <see langword="string"/> that consists of the elements of <see cref="source"/> delimited by the separator <see langword="char"/>.</returns>
     public static string JoinString(this string[] source, char separator)
     {
         return string.Join(separator, source);
