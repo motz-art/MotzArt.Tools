@@ -17,7 +17,9 @@ public static class NullCheckExtensions
     [return: NotNull]
     public static T EnsureArgumentNotNull<T>([NotNull] this T? target, [CallerArgumentExpression(nameof(target))] string name = "<not specified>")
     {
-        return target ?? throw new ArgumentNullException(name);
+        ArgumentNullException.ThrowIfNull(target, name);
+
+        return target;
     }
 
     /// <summary>
