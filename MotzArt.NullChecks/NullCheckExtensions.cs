@@ -13,6 +13,7 @@ public static class NullCheckExtensions
     /// <param name="name">Name of the object to include as paramName in <see cref="ArgumentNullException"/>.</param>
     /// <returns><see cref="target"/> value.</returns>
     /// <exception cref="ArgumentNullException">Throws if target is null. paramName is set to <see cref="name"/>.</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     [return: NotNull]
     public static T EnsureArgumentNotNull<T>([NotNull] this T? target, [CallerArgumentExpression(nameof(target))] string name = "<not specified>")
     {
