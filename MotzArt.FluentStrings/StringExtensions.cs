@@ -191,42 +191,40 @@ public static class StringExtensions
     {
         if (str.Length == 0) return str;
 
+        var start = str.IndexOfAnyExcept(WhiteSpaceCharacters);
+
+        if (start == -1) return "";
+
+        var end = str.LastIndexOfAnyExcept(WhiteSpaceCharacters) + 1;
+
+        Debug.Assert(start < end);
+
+        str = str.Slice(start, end - start);
+
+        var pos = str.IndexOfAny(WhiteSpaceCharacters);
+
+        if (pos > 0)
         {
-            var start = str.IndexOfAnyExcept(WhiteSpaceCharacters);
-
-            if (start == -1) return "";
-
-            var end = str.LastIndexOfAnyExcept(WhiteSpaceCharacters) + 1;
-
-            Debug.Assert(start < end);
-
-            str = str.Slice(start, end - start);
-
-            var pos = str.IndexOfAny(WhiteSpaceCharacters);
-
-            if (pos > 0)
+            while (true)
             {
-                while (true)
+                var n1 = pos + 1;
+                var n = str.Slice(n1).IndexOfAny(WhiteSpaceCharacters);
+
+                if (n < 0)
                 {
-                    var n1 = pos + 1;
-                    var n = str.Slice(n1).IndexOfAny(WhiteSpaceCharacters);
-
-                    if (n < 0)
-                    {
-                        break;
-                    }
-
-                    if (n == 0 && !str.Slice(pos).StartsWith("\r\n"))
-                    {
-                        return DoRemoveRedundantWhiteSpaces(str, pos);
-                    }
-
-                    pos = n1 + n;
+                    break;
                 }
-            }
 
-            return str;
+                if (n == 0 && !str.Slice(pos).StartsWith("\r\n"))
+                {
+                    return DoRemoveRedundantWhiteSpaces(str, pos);
+                }
+
+                pos = n1 + n;
+            }
         }
+
+        return str;
     }
 
     private static string DoRemoveRedundantWhiteSpaces(ReadOnlySpan<char> str, int pos)
