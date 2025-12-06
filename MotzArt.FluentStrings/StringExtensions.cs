@@ -15,43 +15,43 @@ public static class StringExtensions
         "\u0020\u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\u0009\u000A\u000B\u000C\u000D\u0085");
 
     /// <summary>
-    /// Indicates whether the <see cref="value"/> string is <see langword="null"/>, empty, or consists only of white-space characters.
+    /// Indicates whether the <paramref name="value"/> string is <see langword="null"/>, empty, or consists only of white-space characters.
     /// </summary>
     /// <param name="value">The string to check.</param>
-    /// <returns><see langword="true"/> is <see cref="value"/> is <see langword="null"/>, empty string (""), or consists only of white-space characters, otherwise <see langword="false"/>.</returns>
+    /// <returns><see langword="true"/> is <paramref name="value"/> is <see langword="null"/>, empty string (""), or consists only of white-space characters, otherwise <see langword="false"/>.</returns>
     public static bool IsNullOrWhitespace([NotNullWhen(false)] this string? value)
     {
         return string.IsNullOrWhiteSpace(value);
     }
 
     /// <summary>
-    /// Indicates whether the <see cref="value"/> string is <see langword="null"/> or an empty string (""). 
+    /// Indicates whether the <paramref name="value"/> string is <see langword="null"/> or an empty string (""). 
     /// </summary>
     /// <param name="value">The string to check.</param>
-    /// <returns><see langword="true"/> if <see cref="value"/> is <see langword="null"/> or <see cref="string.Empty"/>.</returns>
+    /// <returns><see langword="true"/> if <paramref name="value"/> is <see langword="null"/> or <see cref="string.Empty"/>.</returns>
     public static bool IsNullOrEmpty([NotNullWhen(false)] this string? value)
     {
         return string.IsNullOrEmpty(value);
     }
 
     /// <summary>
-    /// Checks if string <see cref="value"/> is not <see langword="null"/> and has any non white-space character.
+    /// Checks if string <paramref name="value"/> is not <see langword="null"/> and has any non white-space character.
     /// </summary>
     /// <param name="value">The string to check.</param>
     /// <remarks>Opposite of <see cref="IsNullOrWhitespace"/>.</remarks>
-    /// <returns><see langword="true"/> if <see cref="value"/> is not <see langword="null"/> and not <see cref="string.Empty"/> and not consists exclusively of white-space character, otherwise <see langword="false"/>.</returns>
+    /// <returns><see langword="true"/> if <paramref name="value"/> is not <see langword="null"/> and not <see cref="string.Empty"/> and not consists exclusively of white-space character, otherwise <see langword="false"/>.</returns>
     public static bool HasValue([NotNullWhen(true)] this string? value)
     {
         return !string.IsNullOrWhiteSpace(value);
     }
 
     /// <summary>
-    /// Ensures that string <see cref="value"/> is not <see langword="null"/> and has any non white-space character.
+    /// Ensures that string <paramref name="value"/> is not <see langword="null"/> and has any non white-space character.
     /// </summary>
     /// <param name="value">The string to check.</param>
     /// <param name="name">Name of variable or hint to include in <see cref="ArgumentException"/>.</param>
-    /// <returns>Original <see cref="value"/> if it is not <see langword="null"/> and has non white-space character.</returns>
-    /// <exception cref="ArgumentException">Throws if <see cref="value"/> is <see langword="null"/> or consists only of white-space characters.</exception>
+    /// <returns>Original <paramref name="value"/> if it is not <see langword="null"/> and has non white-space character.</returns>
+    /// <exception cref="ArgumentException">Throws if paramref name="value"/> is <see langword="null"/> or consists only of white-space characters.</exception>
     public static string EnsureHasValue([NotNull] this string? value, [CallerArgumentExpression(nameof(value))] string name = "<not specified>")
     {
         if (value.IsNullOrWhitespace()) throw new ArgumentException($"{name} should not be null or white-space.");
@@ -61,9 +61,9 @@ public static class StringExtensions
     /// <summary>
     /// Concatenates the elements of a specified collection, using the specified separator between each element.
     /// </summary>
-    /// <typeparam name="T">The type of the members of <see cref="source"/>.</typeparam>
+    /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
     /// <param name="source">A collection that contains the objects to concatenate.</param>
-    /// <param name="separator">The string to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
+    /// <param name="separator">The string to use as a separator. <paramref name="separator"/> is included in the returned string only if values has more than one element.</param>
     /// <returns>A <see langword="string"/> that consists of the elements of values delimited by the separator string.</returns>
     public static string JoinString<T>(this IEnumerable<T> source, string separator)
     {
@@ -73,9 +73,9 @@ public static class StringExtensions
     /// <summary>
     /// Concatenates the elements of a specified collection, using the specified separator between each element.
     /// </summary>
-    /// <typeparam name="T">The type of the members of <see cref="source"/>.</typeparam>
+    /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
     /// <param name="source">A collection that contains the objects to concatenate.</param>
-    /// <param name="separator">The string to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
+    /// <param name="separator">The string to use as a separator. <paramref name="separator"/> is included in the returned string only if values has more than one element.</param>
     /// <returns>A <see langword="string"/> that consists of the elements of values delimited by the separator string.</returns>
     public static string JoinString<T>(this IEnumerable<T> source, char separator)
     {
@@ -85,9 +85,9 @@ public static class StringExtensions
     /// <summary>
     /// Concatenates the elements of a specified collection, using the specified separator between each element.
     /// </summary>
-    /// <typeparam name="T">The type of the members of <see cref="source"/>.</typeparam>
+    /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
     /// <param name="source">A collection that contains the objects to concatenate.</param>
-    /// <param name="separator">The string to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
+    /// <param name="separator">The string to use as a separator. <paramref name="separator"/> is included in the returned string only if values has more than one element.</param>
     /// <returns>A <see langword="string"/> that consists of the elements of values delimited by the separator string.</returns>
     public static string JoinString<T>(this T[] source, string separator)
     {
@@ -95,11 +95,11 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Concatenates the elements of a specified <see cref="source"/> collection, using the specified <see cref="separator"/> between each element.
+    /// Concatenates the elements of a specified <paramref name="source"/> collection, using the specified <paramref name="separator"/> between each element.
     /// </summary>
-    /// <typeparam name="T">The type of the members of <see cref="source"/>.</typeparam>
+    /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
     /// <param name="source">A collection that contains the objects to concatenate.</param>
-    /// <param name="separator">The string to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
+    /// <param name="separator">The string to use as a separator. <paramref name="separator"/> is included in the returned string only if values has more than one element.</param>
     /// <returns>A <see langword="string"/> that consists of the elements of values delimited by the separator string.</returns>
     public static string JoinString<T>(this T[] source, char separator)
     {
@@ -107,10 +107,10 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Concatenates the elements of a specified <see cref="source"/> collection, using the specified <see cref="separator"/> between each element.
+    /// Concatenates the elements of a specified <paramref name="source"/> collection, using the specified <paramref name="separator"/> between each element.
     /// </summary>
     /// <param name="source">A collection that contains the strings to concatenate.</param>
-    /// <param name="separator">The <see cref="string"/> to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
+    /// <param name="separator">The <see cref="string"/> to use as a separator. <paramref name="separator"/> is included in the returned string only if values has more than one element.</param>
     /// <returns>A <see langword="string"/> that consists of the elements of values delimited by the separator string.</returns>
     public static string JoinString(this IEnumerable<string> source, string separator)
     {
@@ -118,10 +118,10 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Concatenates the elements of a specified <see cref="source"/> collection, using the specified <see cref="separator"/> between each element.
+    /// Concatenates the elements of a specified <paramref name="source"/> collection, using the specified <paramref name="separator"/> between each element.
     /// </summary>
     /// <param name="source">A collection that contains the strings to concatenate.</param>
-    /// <param name="separator">The <see cref="char"/> to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
+    /// <param name="separator">The <see cref="char"/> to use as a separator. <paramref name="separator"/> is included in the returned string only if values has more than one element.</param>
     /// <returns>A <see langword="string"/> that consists of the elements of values delimited by the separator string.</returns>
     public static string JoinString(this IEnumerable<string> source, char separator)
     {
@@ -129,10 +129,10 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Concatenates the elements of a specified <see cref="source"/> array, using the specified <see cref="separator"/> between each element.
+    /// Concatenates the elements of a specified <paramref name="source"/> array, using the specified <paramref name="separator"/> between each element.
     /// </summary>
     /// <param name="source">A collection that contains the strings to concatenate.</param>
-    /// <param name="separator">The <see cref="string"/> to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
+    /// <param name="separator">The <see cref="string"/> to use as a separator. <paramref name="separator"/> is included in the returned string only if values has more than one element.</param>
     /// <returns>A <see langword="string"/> that consists of the elements of values delimited by the separator string.</returns>
     public static string JoinString(this string[] source, string separator)
     {
@@ -140,11 +140,11 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Concatenates the elements of a specified <see cref="source"/> array, using the specified <see cref="separator"/> between each element.
+    /// Concatenates the elements of a specified <paramref name="source"/> array, using the specified <paramref name="separator"/> between each element.
     /// </summary>
     /// <param name="source">A collection that contains the strings to concatenate.</param>
-    /// <param name="separator">The <see cref="char"/> to use as a separator. <see cref="separator"/> is included in the returned string only if <see cref="source"/> has more than one element.</param>
-    /// <returns>A <see langword="string"/> that consists of the elements of <see cref="source"/> delimited by the separator <see langword="char"/>.</returns>
+    /// <param name="separator">The <see cref="char"/> to use as a separator. <paramref name="separator"/> is included in the returned string only if <paramref name="source"/> has more than one element.</param>
+    /// <returns>A <see langword="string"/> that consists of the elements of <paramref name="source"/> delimited by the <paramref name="separator"/> <see langword="char"/>.</returns>
     public static string JoinString(this string[] source, char separator)
     {
         return string.Join(separator, source);
@@ -154,7 +154,7 @@ public static class StringExtensions
     /// Concatenates non-empty and non-whitespace elements of a specified collection, using the specified separator between each element.
     /// </summary>
     /// <param name="source">A collection that contains the objects to concatenate.</param>
-    /// <param name="separator">The <see cref="string"/> to use as a separator. <see cref="separator"/> is included in the returned string only if values has more than one element.</param>
+    /// <param name="separator">The <see cref="string"/> to use as a separator. <paramref name="separator"/> is included in the returned string only if values has more than one element.</param>
     /// <returns>A <see langword="string"/> that consists of the elements of values delimited by the separator string.</returns>
     public static string JoinNonEmptyStrings(this IEnumerable<string?> source, string separator)
     {
