@@ -85,7 +85,6 @@ public static class NullCheckExtensions
     /// <param name="name">Name of the list. If not sett will be set to expression passed into <paramref name="list"/> argument.</param>
     /// <returns>The <paramref name="list"/> that was passed in.</returns>
     /// <exception cref="ArgumentException">Throws if list is <see langword="null"/> or empty.</exception>
-    [return: NotNull]
     public static List<TItem> EnsureNotEmpty<TItem>([NotNull] this List<TItem>? list, [CallerArgumentExpression(nameof(list))] string name = "<not specified>")
     {
         if (list == null || list.Count == 0) throw new ArgumentException($"{name} should have at least one item.");
@@ -100,7 +99,6 @@ public static class NullCheckExtensions
     /// <param name="name">Name of the list. If not sett will be set to expression passed into <paramref name="list"/> argument.</param>
     /// <returns>The <paramref name="list"/> that was passed in.</returns>
     /// <exception cref="ArgumentException">Throws if list is <see langword="null"/> or empty.</exception>
-    [return: NotNull]
     public static IReadOnlyList<TItem> EnsureNotEmpty<TItem>([NotNull] this IReadOnlyList<TItem>? list, [CallerArgumentExpression(nameof(list))] string name = "<not specified>")
     {
         if (list == null || list.Count == 0) throw new ArgumentException($"{name} should have at least one item.");
@@ -116,7 +114,6 @@ public static class NullCheckExtensions
     /// <param name="name">Name of the list. If not sett will be set to expression passed into <paramref name="list"/> argument.</param>
     /// <returns>The <paramref name="list"/> that was passed in.</returns>
     /// <exception cref="ArgumentException">Throws if list is <see langword="null"/> or empty.</exception>
-    [return: NotNull]
     public static IList<TItem> EnsureNotEmpty<TItem>([NotNull] this IList<TItem>? list, [CallerArgumentExpression(nameof(list))] string name = "<not specified>")
     {
         if (list == null || list.Count == 0) throw new ArgumentException($"{name} should have at least one item.");
