@@ -63,7 +63,7 @@ public class JoinNonEmptyStringTests
     public void ShouldThrowIfValuesIsNull()
     {
         IEnumerable<string>? values = null;
-        var act = () => values.JoinNonEmptyStrings(",");
+        var act = () => values!.JoinNonEmptyStrings(",");
         act.Should().Throw<ArgumentNullException>();
     }
 }
