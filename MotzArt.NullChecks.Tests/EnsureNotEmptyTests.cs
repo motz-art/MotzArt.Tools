@@ -17,7 +17,7 @@ public class EnsureNotEmptyTests
     [Test]
     public void ShouldNotThrowForNonEmptyIList()
     {
-        IList<string?> list = new List<string> { null };
+        IList<string?> list = new List<string?> { null };
 
         list.EnsureNotEmpty().Should().BeSameAs(list);
     }
