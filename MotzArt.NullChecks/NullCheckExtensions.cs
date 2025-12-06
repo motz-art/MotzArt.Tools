@@ -3,6 +3,21 @@ using System.Runtime.CompilerServices;
 
 namespace MotzArt.NullChecks;
 
+/// <summary>
+/// Provides extension methods for performing null and emptiness checks on objects and collections, throwing appropriate
+/// exceptions when validation fails.
+/// </summary>
+/// <remarks>
+/// <para>These methods help enforce argument validation in APIs by throwing exceptions such as
+/// <see cref="ArgumentNullException"/>, <see cref="NullReferenceException"/>, or <see cref="ArgumentException"/> when
+/// inputs are null or empty. All methods are static and designed for use as extension methods on reference types,
+/// nullable value types, and common collection interfaces.
+/// </para>
+/// <para>
+/// The methods do not perform deep validation beyond null or emptiness checks and are not thread-safe for concurrent
+/// modifications of collections.
+/// </para>
+/// </remarks>
 public static class NullCheckExtensions
 {
     /// <summary>
