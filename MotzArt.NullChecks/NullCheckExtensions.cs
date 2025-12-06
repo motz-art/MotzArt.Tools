@@ -51,11 +51,11 @@ public static class NullCheckExtensions
     }
 
     /// <summary>
-    /// Checks if <paramref name="target"/> is not null otherwise throws <see cref="ArgumentNullException"/>.
+    /// Checks if <paramref name="target"/> is not null otherwise throws <see cref="NullReferenceException"/>.
     /// </summary>
     /// <typeparam name="T">Any reference type.</typeparam>
     /// <param name="target">Object to check.</param>
-    /// <param name="name">Name of the object to include as paramName in <see cref="ArgumentNullException"/>.</param>
+    /// <param name="name">Name of the object to include in <see cref="NullReferenceException"/> message.</param>
     /// <returns><paramref name="target"/> value.</returns>
     /// <exception cref="NullReferenceException">Throws if target is null.</exception>
     [return: NotNull]
